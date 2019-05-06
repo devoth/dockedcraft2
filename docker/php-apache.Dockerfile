@@ -1,6 +1,6 @@
 FROM php:7.3.3-apache
 
-RUN echo '127.0.0.1       localhost.localdomain   localhost' >> /etc/hosts
+# RUN echo '127.0.0.1       localhost.localdomain   localhost' >> /etc/hosts
 
 # install PHP extensions required by craft
 RUN docker-php-ext-install pdo_mysql

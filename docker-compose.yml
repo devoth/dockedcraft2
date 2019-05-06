@@ -22,9 +22,7 @@ services:
     #   - '3306:3306'
     volumes:
       - database_schema:/docker-entrypoint-initdb.d
-    #   - "${PWD}/../docker-data/my.cnf:/etc/mysql/my.cnf"
-    #   - database_schema:/docker-entrypoint-initdb.d
-    #   - "${PWD}/db/database-schema.sql:/docker-entrypoint-initdb.d"
+      # - "${PWD}/docker-data/my.cnf:/etc/mysql/my.cnf"
     #   - database_data:/var/lib/mysql
 
   # phpmyadmin:

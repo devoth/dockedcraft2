@@ -16,3 +16,14 @@ RUN rm -d /var/www/html
 
 # add mod_rewrite support
 RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+
+
+# needed extensions:
+# - PDO MySQL Extension
+# - Mcrypt Extension
+# - GD Extension
+# - OpenSSL Extension
+# - crypt() Extension with BLOWFISH_CRYPT enabled
+
+# optional extensions:
+# - ImageMagick Extension

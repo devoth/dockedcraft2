@@ -20,7 +20,8 @@ services:
       MYSQL_DATABASE: craft
     # ports:
     #   - '3306:3306'
-    # volumes:
+    volumes:
+      - database_schema:/docker-entrypoint-initdb.d
     #   - "${PWD}/../docker-data/my.cnf:/etc/mysql/my.cnf"
     #   - database_schema:/docker-entrypoint-initdb.d
     #   - "${PWD}/db/database-schema.sql:/docker-entrypoint-initdb.d"
@@ -37,7 +38,13 @@ services:
   #     - "PMA_PASSWORD=root"
   #     - "MYSQL_ROOT_PASSWORD=root"
 
-# volumes:
+volumes:
+  database_schema:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "${PWD}/database-schema"
 #   database_schema:
 #     driver: local
 #     driver_opts:

@@ -8,6 +8,10 @@ docker-compose up
 
 Craft 2 should be installed in `/web` folder.
 
+https://craftcms.com/latest-v2.zip
+
+
+
 ## Useful links
 
 - [Craft 2 Server Requirements](https://docs.craftcms.com/v2/requirements.html)

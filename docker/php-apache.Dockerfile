@@ -2,6 +2,9 @@ FROM php:7.3.3-apache
 
 # RUN echo '127.0.0.1       localhost.localdomain   localhost' >> /etc/hosts
 
+# install uzip to extract craft install
+RUN apt-get update && apt-get install unzip
+
 # install PHP extensions required by craft
 RUN docker-php-ext-install pdo_mysql
 
@@ -14,17 +17,23 @@ ADD apache-vhost.conf /etc/apache2/sites-enabled/000-apachevhost.conf
 # add setup for config options
 ADD apache.conf /etc/apache2/conf-enabled/000-apache.conf
 
-# try to remove html folder - DOESN'T FUCKING WORK
+# try to remove html folder - DOESN'T WORK
 RUN rm -d /var/www/html
 
-
-
 # add mod_rewrite support
-# RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
 RUN a2enmod rewrite
+
+
+# download and install craft
+RUN rm -d /var/www/craftcms-v2.zip &>/dev/null
+RUN curl https://craftcms.com/latest-v2.zip --output /var/www/craftcms-v2.zip -L
+RUN unzip /var/www/craftcms-v2.zip -d /var/www
 
 # rename htaccess to .htaccess
 RUN mv /var/www/public/htaccess /var/www/public/.htaccess &>/dev/null
+
+# set database in craft files
+RUN sed -i "/'server' => 'localhost',/c   'server' => 'database'," /var/www/craft/config/db.php
 
 # needed extensions:
 # - PDO MySQL Extension

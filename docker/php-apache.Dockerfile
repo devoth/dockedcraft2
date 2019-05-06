@@ -15,7 +15,8 @@ ADD apache.conf /etc/apache2/conf-enabled/000-apache.conf
 RUN rm -d /var/www/html
 
 # add mod_rewrite support
-RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+# RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+RUN a2enmod rewrite
 
 
 # needed extensions:

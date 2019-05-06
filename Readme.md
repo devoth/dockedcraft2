@@ -6,7 +6,7 @@ Uses Apache + PHP + MySQL + MySQLAdmin
 docker-compose up
 ```
 
-Craft 2 should be installed in `/web` folder.
+Now please download and unpack Craft 2 into `/web` folder.
 https://craftcms.com/latest-v2.zip
 
 Can be done via command line

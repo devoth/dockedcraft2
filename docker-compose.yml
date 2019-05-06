@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+
+  php-apache:
+    build:
+      context: ./docker/
+      dockerfile: php-apache.Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - "./web:/var/www"
+
+  # php-apache:
+  #   build:
+  #     context: ./docker/
+  #     dockerfile: php-apache.Dockerfile
+  #   ports:
+  #     - "8080:80"
+  #   volumes:
+  #     - "./test-php:/var/www"
+
+#   database:
+#     image: mysql/mysql-server:5.5
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: craft
+#     volumes:
+#       # - "${PWD}/../docker-data/my.cnf:/etc/mysql/my.cnf"
+#       - database_schema:/docker-entrypoint-initdb.d
+#       # - "${PWD}/db/database-schema.sql:/docker-entrypoint-initdb.d"
+#       # - database_data:/var/lib/mysql
+
+#   phpmyadmin:
+#     image: phpmyadmin/phpmyadmin
+#     ports:
+#       - "9000:80"
+#     environment:
+#      - "PMA_ARBITRARY=1"
+#      - "PMA_HOST=database"
+#      - "PMA_USER=root"
+#      - "PMA_PASSWORD=root"
+#      - "MYSQL_ROOT_PASSWORD=root"
+
+# volumes:
+#   database_schema:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       # o: bind
+#       device: "${PWD}/db/database-schema.sql"
+#   # database_data:
+#   #   driver: local
+#   #   driver_opts:
+#   #     type: none
+#   #     o: bind
+#   #     device: "${PWD}/../craft_db_data_dev"

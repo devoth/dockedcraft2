@@ -7,9 +7,18 @@ docker-compose up
 ```
 
 Craft 2 should be installed in `/web` folder.
-
 https://craftcms.com/latest-v2.zip
 
+Can be done via command line
+
+```bash
+# log in to docker container
+docker exec -it <ID> bash
+# download Craft CMS
+curl https://craftcms.com/latest-v2.zip --output /var/www/craftcms-v2.zip -L
+```
+
+then unzip it
 
 
 ## Useful links

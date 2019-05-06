@@ -23,6 +23,7 @@ RUN rm -d /var/www/html
 # RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
 RUN a2enmod rewrite
 
+# rename htaccess to .htaccess
 RUN mv /var/www/public/htaccess /var/www/public/.htaccess &>/dev/null
 
 # needed extensions:

@@ -23,7 +23,7 @@ services:
     volumes:
       - database_schema:/docker-entrypoint-initdb.d
       # - "${PWD}/docker-data/my.cnf:/etc/mysql/my.cnf"
-    #   - database_data:/var/lib/mysql
+      - database_data:/var/lib/mysql
 
   # phpmyadmin:
   #   image: phpmyadmin/phpmyadmin
@@ -42,16 +42,10 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: "${PWD}/database-schema"
-#   database_schema:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       # o: bind
-#       device: "${PWD}/db/database-schema.sql"
-#   # database_data:
-#   #   driver: local
-#   #   driver_opts:
-#   #     type: none
-#   #     o: bind
-#   #     device: "${PWD}/../craft_db_data_dev"
+      device: "${PWD}/db/database-schema"
+  database_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "${PWD}/db/craft-db-data"

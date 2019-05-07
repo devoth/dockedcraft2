@@ -18,8 +18,18 @@ docker exec -it <ID> bash
 curl https://craftcms.com/latest-v2.zip --output /var/www/craftcms-v2.zip -L
 ```
 
-then unzip it
+After unzipping Craft, replace database credentials in `web/craft/config/db.php`:
+```php
+return array(
+    'server' => 'database',
+    'database' => 'craft',
+    'user' => 'root',
+    'password' => 'root',
+    'tablePrefix' => 'craft',
+);
+```
 
+Now open http://localhost:8080/admin and proceed with Craft installation.
 
 ## Useful links
 

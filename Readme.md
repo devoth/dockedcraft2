@@ -37,4 +37,4 @@ Now open http://localhost:8080/admin and proceed with Craft installation.
 
 - [Craft 2 Server Requirements](https://docs.craftcms.com/v2/requirements.html)
 - [Craft 2 Installation](https://docs.craftcms.com/v2/installing.html#pre-flight-check)
-- 
+ 

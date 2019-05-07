@@ -1,5 +1,7 @@
 # Docker container config for Craft CMS 2
 
+> Disclaimer: Since we're using a MySQL "hack" (`db/database-schema/permissions-fix.sql` to allow root access from another docker container, this shouldn't be used on production, only as a local dev machine. If you want to use it on production perhaps create a different mysql user and add other security precautions.
+
 Uses Apache + PHP + MySQL + MySQLAdmin
 
 ```bash
